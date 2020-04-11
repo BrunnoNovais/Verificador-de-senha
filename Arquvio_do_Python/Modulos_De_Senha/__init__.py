@@ -1,6 +1,4 @@
 def TestandoSenha():
-    # from Meus_Projetos.Verificador_de_senha.Arquvio_do_Python.SugerirSenha import func as
-
     def lin():
         print(f'{"--" * 40}')
 
