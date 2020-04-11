@@ -11,18 +11,31 @@ def TestandoSenha():
 3 - TER MAIS QUE 5 LETRAS NA SUA SENHA.
 4 - TER NO MINIMO DE 3 CARACTERES.(EX:!, @, #, ETC...)
 {'--' * 40}
-OBS: ESSES SÃO OS REQUESITOS QUE EU DESENVOLVI PARA ESSE PROJETO.  ''')
+OU DIGITE "SUGERIR" PARA RECEBER UMA SENHA SEGURA! ''')
     lin()
     senha = str(input('Digite Sua Senha: ')).lower()
     if senha in 'sugerir':
-        SugerirSenha()
+        lin()
+        print('DIGITE UM NUMERO MAIOR OU IGUAL A OITO.')
+        lin()
+        while True:
+            tamanho = int(input('Digite o Tamanho da Senha: '))
+            lin()
+
+            if tamanho < 8:
+                print('SENHA SÓ PODE SER GERADA SE FOR MAIOR OU IGUAL A OITO.')
+                lin()
+
+            else:
+                SugerirSenha(TAMANHO=tamanho)
+                lin()
+                break
     else:
         # -----------------------------------------------------------------------------------------------------------------------
         # ARMAZENADO DADOS A SEREM ANALIZADOS!
         num = '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
-        letra = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-                 'w',
-                 'x', 'y', 'z']
+        letra = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+                 'v', 'w', 'x', 'y', 'z']
         caracteres = ['!', '@', '#', '$', '%', '&', '*']
 
         lugar = ['', '', '', '']
@@ -116,5 +129,7 @@ def SugerirSenha(TAMANHO=8):
         T = len(SENHA_FINAL)
         if len(SENHA_FINAL) != TAMANHO:
             SENHA_FINAL.clear()
+    print('SENHA SUGERIDA: ', end='')
     for c in SENHA_FINAL:
         print(str(c).upper(), end='')
+    print()
